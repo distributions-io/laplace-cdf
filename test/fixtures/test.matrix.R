@@ -1,10 +1,11 @@
 options( digits = 16 )
 library( jsonlite )
+library( bda )
 
-mu = 0
-b = 1
+mu = 0.5
+b = 1.5
 x = 0:24
-y = plap( x, mu, b )
+y = plap( x, mu, 1/b )
 
 cat( y, sep = ",\n" )
 

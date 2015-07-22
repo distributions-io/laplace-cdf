@@ -6,8 +6,8 @@ Cumulative Distribution Function
 
 The [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function) for a [Laplace](https://en.wikipedia.org/wiki/Laplace_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:cdf">
-	<img src="" alt="Cumulative distribution function for a Laplace distribution.">
+<div class="equation" align="center" data-raw-text="F(x;\mu,b) =\tfrac{1}{2} + \tfrac{1}{2} \sgn(x-\mu) \left(1-\exp \left(-\frac{|x-\mu|}{b} \right ) \right )" data-equation="eq:cdf">
+	<img src="https://cdn.rawgit.com/distributions-io/laplace-cdf/c7383d0a64818ba956bb1343cf6ba26baac5572a/docs/img/eqn.svg" alt="Cumulative distribution function for a Laplace distribution.">
 	<br>
 </div>
 
@@ -40,15 +40,15 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = cdf( 1 );
-// returns
+// returns ~0.816
 
 x = [ -4, -2, 0, 2, 4 ];
 out = cdf( x );
-// returns [...]
+// returns [ ~0.001, ~0.068, ~0.5, ~0.932, ~0.991 ]
 
 x = new Float32Array( x );
 out = cdf( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [~0.001,~0.068,~0.5,~0.932,~0.991] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -63,9 +63,9 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = cdf( mat );
 /*
-	[
-
-	   ]
+	[ ~0.025 ~0.068
+	  ~0.184 ~0.5
+	  ~0.816 ~0.932 ]
 */
 ```
 
@@ -88,7 +88,7 @@ var out = cdf( x, {
 	'mu': 7,
 	'b': 6
 });
-// returns [...]
+// returns [ ~0.094, ~0.112, ~0.132, ~0.156, ~0.184, ~0.217 ]
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -109,7 +109,7 @@ function getValue( d, i ) {
 var out = cdf( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ ~0.001, ~0.068, ~0.5, ~0.932, ~0.991 ]
 ```
 
 
@@ -130,11 +130,11 @@ var out = cdf( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
+		{'x':[0,~0.001]},
+		{'x':[1,~0.068]},
+		{'x':[2,~0.5]},
+		{'x':[3,~0.932]},
+		{'x':[4,~0.991]},
 	]
 */
 
@@ -152,13 +152,13 @@ x = new Float64Array( [-4,-2,0,2,4] );
 out = cdf( x, {
 	'dtype': 'float32'
 });
-// returns Float32Array( [...] )
+// returns Float32Array( [~0.001,~0.068,~0.5,~0.932,~0.991] )
 
 // Works for plain arrays, as well...
 out = cdf( [-4,-2,0,2,4], {
 	'dtype': 'float32'
 });
-// returns Float32Array( [...] )
+// returns Float32Array( [~0.001,~0.068,~0.5,~0.932,~0.991] )
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -175,7 +175,7 @@ x = [ -4, -2, 0, 2, 4 ];
 out = cdf( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ ~0.001, ~0.068, ~0.5, ~0.932, ~0.991 ]
 
 bool = ( x === out );
 // returns true
@@ -195,9 +195,9 @@ out = cdf( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[ ~0.025 ~0.068
+	  ~0.184 ~0.5
+	  ~0.816 ~0.932 ]
 */
 
 bool = ( mat === out );

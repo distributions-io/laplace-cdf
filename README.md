@@ -1,6 +1,6 @@
 Cumulative Distribution Function
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > [Laplace](https://en.wikipedia.org/wiki/Laplace_distribution) distribution [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_distribution_function).
 
@@ -11,7 +11,7 @@ The [cumulative distribution function](https://en.wikipedia.org/wiki/Cumulative_
 	<br>
 </div>
 
-where `mu` is the location parameter and `b` is the scale parameter.
+where `mu` is the location parameter and `b > 0` is the scale parameter.
 
 ## Installation
 
@@ -79,7 +79,7 @@ The function accepts the following `options`:
 *	__path__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path.
 *	__sep__: [deepget](https://github.com/kgryte/utils-deep-get)/[deepset](https://github.com/kgryte/utils-deep-set) key path separator. Default: `'.'`.
 
-A [Laplace](https://en.wikipedia.org/wiki/Laplace_distribution) distribution is a function of 2 parameter(s): `mu`(location parameter) and `b`(scale parameter). By default, `mu` is equal to `0` and `b` is equal to `1`. To adjust either parameter, set the corresponding option(s).
+A [Laplace](https://en.wikipedia.org/wiki/Laplace_distribution) distribution is a function of two parameters: `mu`(location parameter) and `b > 0`(scale parameter). By default, `mu` is equal to `0` and `b` is equal to `1`. To adjust either parameter, set the corresponding option.
 
 ``` javascript
 var x = [ -4, -2, 0, 2, 4 ];
@@ -364,8 +364,8 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/distributions-io/laplace-cdf/master.svg
 [travis-url]: https://travis-ci.org/distributions-io/laplace-cdf
 
-[coveralls-image]: https://img.shields.io/coveralls/distributions-io/laplace-cdf/master.svg
-[coveralls-url]: https://coveralls.io/r/distributions-io/laplace-cdf?branch=master
+[codecov-image]: https://img.shields.io/codecov/c/github/distributions-io/laplace-cdf/master.svg
+[codecov-url]: https://codecov.io/github/distributions-io/laplace-cdf?branch=master
 
 [dependencies-image]: http://img.shields.io/david/distributions-io/laplace-cdf.svg
 [dependencies-url]: https://david-dm.org/distributions-io/laplace-cdf
